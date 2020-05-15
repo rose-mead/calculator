@@ -1,0 +1,32 @@
+body {
+	font-family: 'arial', cursive;
+	background-color: rgb(255, 255, 255);
+}
+
+table {
+  margin-right: center;
+  margin-left: center;
+  margin: 0 auto;
+  border: 1px solid black;
+  background-color: black;
+}
+
+td {
+  background-color: rgb(255, 240, 220);
+  height: 75px;
+  width: 75px;
+  text-align: center;
+}
+
+#theDisplay{
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgb(231, 231, 231);
+    border: 3px solid black;
+    border-bottom: 0px solid black;
+    height: 75px;
+    width: 314px;
+    text-align: right;
+    font-size: 68px;
+    overflow: hidden;
+}
