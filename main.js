@@ -22,30 +22,31 @@ var pressed = ""
 var equation = []
 var symbol = []
 var array = []
+var val = 0
 
 
 
 for (var i=1; i<cells.length; i++) {
-    cells[i].onclick =  getNumber(i)
+    cells[i].onclick =  getNumber
 }
 
-function getNumber(i) {
-    return function() {
-        pressed += cells[i].innerHTML
-        console.log(pressed)
-        getUserInput()
-    }
+function getNumber() {
+    val = this.innerHTML
+    console.log(val)
+    checkNumber()
 }
 
 // if number add to array
 // if symbol convert to symbol
 // pressed = [ [1,2,3], [x], [2]]
-function getUserInput() {
-    if (!isNaN(pressed) || pressed == '.') {
+function checkNumber() {
+    if (!isNaN(val) || val == '.') {
+        pressed += val
         displayValue()
-        equation = Number(pressed)
-        console.log(pressed)
-        // displayValue()
+
+        // equation = Number(val)
+    } else {
+        // console.log(pressed)
     }
 
 }
