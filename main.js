@@ -14,6 +14,7 @@ var equation = []
 var symbolsArray = []
 var valuesArray = []
 var val = ''
+var result = 0 
 
 
 
@@ -31,8 +32,7 @@ function getNumber() {
 function checkNumber() {
     if (!isNaN(val) || val == '.') {
         temp += val
-        equation = temp
-        displayValue(temp)
+        result = temp
     }
 
 
@@ -41,7 +41,7 @@ function checkNumber() {
     // result *+ next number = result
     else if (val === '=') {
         valuesArray.push(temp)
-        var result = Number(valuesArray[0])
+        result = Number(valuesArray[0])
         // console.log(result)
         for(var i=0; i<valuesArray.length; i++) {
             if(valuesArray[i] == '+') {
@@ -61,18 +61,26 @@ function checkNumber() {
                 result = result * Number(nextNum)
             }
         }
-        displayValue(result)
         // }
+    } else if (val == 'AC') {
+        temp = ''
+        valuesArray = []
+        result = 0
+    } else if (val == 'CE') {
+        temp = ''
+
     }
  
      else {
         valuesArray.push(temp)
         val = convertSymbol()
         valuesArray.push(val)
-        // console.log(valuesArray)
         temp = ''
-
+        
         }
+
+        displayValue(result)
+        
 
 }
 
