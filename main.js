@@ -1,28 +1,19 @@
-// Reverse pseudocode
+//Reverse pseudocode
+// on click, store the value of text
 
-// declare variables - entries array, total num, temp string
-// on button click - store value in temp
-// if value is a number or dot - add number to temp variable
-// store as substring in property of answer object 
-// if symbol is clicked - clear variables, convert x to * etc push onto entries array
-// if symbol is +-/* do the math on the next number in array
-// if a negative number do math abs to it is handled correctly
-// else push the number on to temp and val
+// if it is a number or a dot, store in 'temp' variable, answer.val = temp
+// if it is a random symbol - do some stuff
+// if it is / or *, convert to / *, push 'temp numbers' and push symbol, clear temp variable
+// if it is equals, push temp, iterate through entries array, do math on the next number, add to nt variable
+// 
 
-//Improvements
-// get pressed key as string
-// use this instead of i with onclick function
-// instead of adding to array += to string
-var cells = []
-cells = document.getElementsByTagName('td')
-console.log(cells)
-var array =[1,2,3]
+var cells = document.getElementsByTagName('td')
 
-var pressed = ""
+var temp = ''
 var equation = []
-var symbol = []
-var array = []
-var val = 0
+var symbolsArray = []
+var valuesArray = []
+var val = ''
 
 
 
@@ -36,22 +27,56 @@ function getNumber() {
     checkNumber()
 }
 
-// if number add to array
-// if symbol convert to symbol
-// pressed = [ [1,2,3], [x], [2]]
+
 function checkNumber() {
     if (!isNaN(val) || val == '.') {
-        pressed += val
+        temp += val
+        equation = temp
         displayValue()
-
-        // equation = Number(val)
-    } else {
-        // console.log(pressed)
     }
+
+
+    // go through array
+    // first number = result
+    // result *+ next number = result
+    else if (val === '=') {
+        valuesArray.push(temp)
+        var result = Number(valuesArray[0])
+        // console.log(result)
+        for(var i=0; i<valuesArray.length; i++) {
+            if(valuesArray[i] == '+') {
+                var nextNum = valuesArray[i+1]
+                result = result + Number(nextNum)
+                console.log(result)
+            }
+        }
+
+        // }
+    }
+ 
+     else {
+        valuesArray.push(temp)
+        val = convertSymbol()
+        valuesArray.push(val)
+        // console.log(valuesArray)
+        temp = ''
+
+        }
 
 }
 
+
+function convertSymbol() {
+    if (val == '÷') {
+        return '/'
+    }
+    if (val == '×') {
+        return '*'
+    } else return val
+    
+}
+
 function displayValue() {
-    cells[0].innerHTML = pressed
+    cells[0].innerHTML = temp
 }
 
