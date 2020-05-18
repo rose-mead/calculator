@@ -32,7 +32,7 @@ function checkNumber() {
     if (!isNaN(val) || val == '.') {
         temp += val
         equation = temp
-        displayValue()
+        displayValue(temp)
     }
 
 
@@ -47,10 +47,21 @@ function checkNumber() {
             if(valuesArray[i] == '+') {
                 var nextNum = valuesArray[i+1]
                 result = result + Number(nextNum)
-                console.log(result)
+            }
+            if(valuesArray[i] == '-') {
+                var nextNum = valuesArray[i+1]
+                result = result - Number(nextNum)
+            }
+            if(valuesArray[i] == '/') {
+                var nextNum = valuesArray[i+1]
+                result = result / Number(nextNum)
+            }
+            if(valuesArray[i] == '*') {
+                var nextNum = valuesArray[i+1]
+                result = result * Number(nextNum)
             }
         }
-
+        displayValue(result)
         // }
     }
  
@@ -76,7 +87,7 @@ function convertSymbol() {
     
 }
 
-function displayValue() {
-    cells[0].innerHTML = temp
+function displayValue(value) {
+    cells[0].innerHTML = value
 }
 
