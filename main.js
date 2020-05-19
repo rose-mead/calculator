@@ -30,16 +30,12 @@ function checkNumber() {
 
     if (!isNaN(val) || val == '.') {
         storeValInString()
-    }
-
-    else if (val === '=') {
+        
+    } else if (val === '=') {
         doMaths()
 
     } else if (val == 'AC') {
         reset()
-        currentNum = ''
-        valuesArray = []
-        result = 0
 
     } else if (val == 'CE') {
         currentNum = ''
@@ -62,6 +58,12 @@ function checkNumber() {
 function storeValInString() {
     currentNum += val
     result = currentNum
+}
+
+function reset() {
+    currentNum = ''
+    valuesArray = []
+    result = 0
 }
 
 function doMaths() {
