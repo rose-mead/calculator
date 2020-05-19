@@ -34,8 +34,23 @@ td:hover {
     padding-right: 10px;
 }
 
-
-
 .blank:hover {
     background-color: #989898;
+}
+
+.symbols {
+    background-color: #d0b998;
+    border-color:  #9d8a6f;
+}
+
+.symbols:hover {
+    background-color: #ffe7c5;
+}
+
+.equals {
+    background-color: #698f5e;
+}
+
+.equals:hover {
+    background-color: #7fac73;
 }
