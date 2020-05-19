@@ -31,29 +31,27 @@ function checkNumber() {
     // if a number or a '.'
     if (!isNaN(val) || val == '.') {
         currentNum += val
-        displayValue(currentNum)
+        result = currentNum
     }
 
     //if val is =
     else if (val === '=') {
         valuesArray.push(currentNum)
         doMaths()
-        displayValue(result)
 
     } else if (val == 'AC') {
         currentNum = ''
         valuesArray = []
         result = 0
-        displayValue(result)
+
     } else if (val == 'CE') {
         currentNum = ''
         result = Number(valuesArray[0])
-        if (!NaN(result)) {
-            displayValue(result)
-
-        } else {
+        if (isNaN(result)) {
             displayValue(0)
+            return
         }
+      
 
 
     }
@@ -65,7 +63,7 @@ function checkNumber() {
         currentNum = ''
         
         }
-
+        displayValue(result)
         
 
 }
