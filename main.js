@@ -17,7 +17,7 @@ var result = 0
 
 // add onclick function to all cells
 for (var i=1; i<cells.length; i++) {
-    cells[i].onclick =  getNumber
+    cells[i].onclick = getNumber
 }
 
 function getNumber() {
@@ -25,39 +25,34 @@ function getNumber() {
     checkNumber()
 }
 
-// if a number or a .
-// currentNumber becomes val
+
 function checkNumber() {
+
+    // if a number or a '.'
     if (!isNaN(val) || val == '.') {
         currentNum += val
         displayValue(currentNum)
-        console.log(currentNum)
     }
 
-
-//if val is =
-// push currentNum onto array
-// add/minus etc from previous number
+    //if val is =
     else if (val === '=') {
         valuesArray.push(currentNum)
         result = Number(valuesArray[0])
-        // console.log(result)
+
         for(var i=0; i<valuesArray.length; i++) {
+            var nextNum = Number(valuesArray[i+1])
+
             if(valuesArray[i] == '+') {
-                var nextNum = valuesArray[i+1]
-                result = result + Number(nextNum)
+                result += nextNum
             }
             if(valuesArray[i] == '-') {
-                var nextNum = valuesArray[i+1]
-                result = result - Number(nextNum)
+                result -= nextNum
             }
             if(valuesArray[i] == '/') {
-                var nextNum = valuesArray[i+1]
-                result = result / Number(nextNum)
+                result /= nextNum
             }
             if(valuesArray[i] == '*') {
-                var nextNum = valuesArray[i+1]
-                result = result * Number(nextNum)
+                result *= nextNum
             }
             
         }
