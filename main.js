@@ -28,13 +28,11 @@ function getNumber() {
 
 function checkNumber() {
 
-    // if a number or a '.'
     if (!isNaN(val) || val == '.') {
         currentNum += val
         result = currentNum
     }
 
-    //if val is =
     else if (val === '=') {
         valuesArray.push(currentNum)
         doMaths()
@@ -51,16 +49,13 @@ function checkNumber() {
         if (isNaN(result)) {
             result = 0
         }
-    }
- 
-     else {
+    } else {
         valuesArray.push(currentNum)
-        val = convertSymbol()
         valuesArray.push(val)
         currentNum = ''
         
         }
-        displayValue()
+        displayResult()
         
 
 }
@@ -77,26 +72,18 @@ function doMaths() {
         if (valuesArray[i] == '-') {
             result -= nextNum
         }
-        if (valuesArray[i] == '/') {
+        if (valuesArray[i] == '÷') {
             result /= nextNum
         }
-        if (valuesArray[i] == '*') {
+        if (valuesArray[i] == '×') {
             result *= nextNum
         } 
     }
 }
 
-function convertSymbol() {
-    if (val == '÷') {
-        return '/'
-    }
-    if (val == '×') {
-        return '*'
-    } else return val
-    
-}
 
-function displayValue() {
+
+function displayResult() {
     cells[0].innerHTML = result
 }
 
