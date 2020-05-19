@@ -9,7 +9,7 @@
 
 var cells = document.getElementsByTagName('td')
 
-var currentNum = ''
+var currentString = ''
 var valuesArray = []
 var val = ''
 var result = 0 
@@ -30,7 +30,7 @@ function checkNumber() {
 
     if (!isNaN(val) || val == '.') {
         storeValInString()
-        
+
     } else if (val === '=') {
         doMaths()
 
@@ -38,16 +38,12 @@ function checkNumber() {
         reset()
 
     } else if (val == 'CE') {
-        currentNum = ''
-        result = Number(valuesArray[0])
-        // if there is nothing to clear
-        if (isNaN(result)) {
-            result = 0
-        }
+        clearCurrentString() 
+
     } else {
-        valuesArray.push(currentNum)
+        valuesArray.push(currentString)
         valuesArray.push(val)
-        currentNum = ''
+        currentString = ''
         
         }
         displayResult()
@@ -56,18 +52,27 @@ function checkNumber() {
 }
 
 function storeValInString() {
-    currentNum += val
-    result = currentNum
+    currentString += val
+    result = currentString
 }
 
 function reset() {
-    currentNum = ''
+    currentString = ''
     valuesArray = []
     result = 0
 }
 
+function clearCurrentString() {
+    currentString = ''
+    result = Number(valuesArray[0])
+    // if there is nothing to clear
+    if (isNaN(result)) {
+        result = 0
+    }
+}
+
 function doMaths() {
-    valuesArray.push(currentNum)
+    valuesArray.push(currentString)
     result = Number(valuesArray[0])
 
     for(var i=0; i<valuesArray.length; i++) {
