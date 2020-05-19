@@ -29,15 +29,14 @@ function getNumber() {
 function checkNumber() {
 
     if (!isNaN(val) || val == '.') {
-        currentNum += val
-        result = currentNum
+        storeValInString()
     }
 
     else if (val === '=') {
-        valuesArray.push(currentNum)
         doMaths()
 
     } else if (val == 'AC') {
+        reset()
         currentNum = ''
         valuesArray = []
         result = 0
@@ -60,7 +59,13 @@ function checkNumber() {
 
 }
 
+function storeValInString() {
+    currentNum += val
+    result = currentNum
+}
+
 function doMaths() {
+    valuesArray.push(currentNum)
     result = Number(valuesArray[0])
 
     for(var i=0; i<valuesArray.length; i++) {
