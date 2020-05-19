@@ -37,27 +37,9 @@ function checkNumber() {
     //if val is =
     else if (val === '=') {
         valuesArray.push(currentNum)
-        result = Number(valuesArray[0])
-
-        for(var i=0; i<valuesArray.length; i++) {
-            var nextNum = Number(valuesArray[i+1])
-
-            if(valuesArray[i] == '+') {
-                result += nextNum
-            }
-            if(valuesArray[i] == '-') {
-                result -= nextNum
-            }
-            if(valuesArray[i] == '/') {
-                result /= nextNum
-            }
-            if(valuesArray[i] == '*') {
-                result *= nextNum
-            }
-            
-        }
+        doMaths()
         displayValue(result)
-        // }
+
     } else if (val == 'AC') {
         currentNum = ''
         valuesArray = []
@@ -88,6 +70,26 @@ function checkNumber() {
 
 }
 
+function doMaths() {
+    result = Number(valuesArray[0])
+
+    for(var i=0; i<valuesArray.length; i++) {
+        var nextNum = Number(valuesArray[i+1])
+
+        if (valuesArray[i] == '+') {
+            result += nextNum
+        }
+        if (valuesArray[i] == '-') {
+            result -= nextNum
+        }
+        if (valuesArray[i] == '/') {
+            result /= nextNum
+        }
+        if (valuesArray[i] == '*') {
+            result *= nextNum
+        } 
+    }
+}
 
 function convertSymbol() {
     if (val == '÷') {
