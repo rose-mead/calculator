@@ -7,7 +7,7 @@ table {
     margin: 5% auto;
     padding: 10px 10px;
     border-spacing: 8px;
-    background-color: #454545;
+    background-color: #333;
 }
 
 td {
@@ -16,9 +16,9 @@ td {
     height: 50px;
     border: 3px solid;
     border-style: outset;
-    border-color: grey;
+    border-color: rgb(97, 97, 97);
     border-radius: 5px;
-    background-color: #989898;
+    background-color: #888888;
     user-select: none;
 }
 
@@ -27,7 +27,7 @@ td:hover {
 }
 
 .answer, .answer:hover {
-    background-color: #698f5e;
+    background-color: rgba(0, 255, 255, 0.557);
     height: 60px;
     border-radius: 10px;
     border-style: inset;
@@ -40,18 +40,18 @@ td:hover {
 }
 
 .symbols {
-    background-color: #d0b998;
-    border-color:  #9d8a6f;
+    background-color: #b8b8b8;
+    border-color:  #919191;
 }
 
 .symbols:hover {
-    background-color: #ffe7c5;
+    background-color: #d8d8d8;
 }
 
 .equals {
-    background-color: #698f5e;
+    background-color: rgba(0, 255, 255, 0.557);
 }
 
 .equals:hover {
-    background-color: #7fac73;
+    background-color: rgba(199, 255, 255, 0.749);
 }
