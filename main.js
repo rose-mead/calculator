@@ -47,13 +47,10 @@ function checkNumber() {
     } else if (val == 'CE') {
         currentNum = ''
         result = Number(valuesArray[0])
+        // if there is nothing to clear
         if (isNaN(result)) {
-            displayValue(0)
-            return
+            result = 0
         }
-      
-
-
     }
  
      else {
@@ -63,7 +60,7 @@ function checkNumber() {
         currentNum = ''
         
         }
-        displayValue(result)
+        displayValue()
         
 
 }
@@ -99,7 +96,7 @@ function convertSymbol() {
     
 }
 
-function displayValue(value) {
-    cells[0].innerHTML = value
+function displayValue() {
+    cells[0].innerHTML = result
 }
 
