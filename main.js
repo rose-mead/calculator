@@ -41,14 +41,19 @@ function checkNumber() {
         clearCurrentString() 
 
     } else {
-        valuesArray.push(currentString)
-        valuesArray.push(val)
-        currentString = ''
-        
-        }
-        displayResult()
+        addToValuesArray()
+    
+    } 
+    
+    displayResult()
         
 
+}
+
+function addToValuesArray() {
+    valuesArray.push(currentString)
+    valuesArray.push(val)
+    currentString = ''
 }
 
 function storeValInString() {
