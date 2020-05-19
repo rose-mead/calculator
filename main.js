@@ -25,55 +25,24 @@ function getNumber() {
     checkNumber()
 }
 
-
 function checkNumber() {
-
     if (!isNaN(val) || val == '.') {
         storeValInString()
-
     } else if (val === '=') {
         doMaths()
-
     } else if (val == 'AC') {
         reset()
-
     } else if (val == 'CE') {
         clearCurrentString() 
-
     } else {
         addToValuesArray()
-    
     } 
-    
     displayResult()
-        
-
-}
-
-function addToValuesArray() {
-    valuesArray.push(currentString)
-    valuesArray.push(val)
-    currentString = ''
 }
 
 function storeValInString() {
     currentString += val
     result = currentString
-}
-
-function reset() {
-    currentString = ''
-    valuesArray = []
-    result = 0
-}
-
-function clearCurrentString() {
-    currentString = ''
-    result = Number(valuesArray[0])
-    // if there is nothing to clear
-    if (isNaN(result)) {
-        result = 0
-    }
 }
 
 function doMaths() {
@@ -98,7 +67,26 @@ function doMaths() {
     }
 }
 
+function reset() {
+    currentString = ''
+    valuesArray = []
+    result = 0
+}
 
+function clearCurrentString() {
+    currentString = ''
+    result = Number(valuesArray[0])
+    // if there is nothing to clear
+    if (isNaN(result)) {
+        result = 0
+    }
+}
+
+function addToValuesArray() {
+    valuesArray.push(currentString)
+    valuesArray.push(val)
+    currentString = ''
+}
 
 function displayResult() {
     cells[0].innerHTML = result
