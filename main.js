@@ -9,38 +9,37 @@
 
 var cells = document.getElementsByTagName('td')
 
-var temp = ''
-var equation = []
-var symbolsArray = []
+var currentNum = ''
 var valuesArray = []
 var val = ''
 var result = 0 
 
 
-
+// add onclick function to all cells
 for (var i=1; i<cells.length; i++) {
     cells[i].onclick =  getNumber
 }
 
 function getNumber() {
     val = this.innerHTML
-    console.log(val)
     checkNumber()
 }
 
-
+// if a number or a .
+// currentNumber becomes val
 function checkNumber() {
     if (!isNaN(val) || val == '.') {
-        temp += val
-        result = temp
+        currentNum += val
+        displayValue(currentNum)
+        console.log(currentNum)
     }
 
 
-    // go through array
-    // first number = result
-    // result *+ next number = result
+//if val is =
+// push currentNum onto array
+// add/minus etc from previous number
     else if (val === '=') {
-        valuesArray.push(temp)
+        valuesArray.push(currentNum)
         result = Number(valuesArray[0])
         // console.log(result)
         for(var i=0; i<valuesArray.length; i++) {
@@ -60,26 +59,36 @@ function checkNumber() {
                 var nextNum = valuesArray[i+1]
                 result = result * Number(nextNum)
             }
+            
         }
+        displayValue(result)
         // }
     } else if (val == 'AC') {
-        temp = ''
+        currentNum = ''
         valuesArray = []
         result = 0
+        displayValue(result)
     } else if (val == 'CE') {
-        temp = ''
+        currentNum = ''
+        result = Number(valuesArray[0])
+        if (!NaN(result)) {
+            displayValue(result)
+
+        } else {
+            displayValue(0)
+        }
+
 
     }
  
      else {
-        valuesArray.push(temp)
+        valuesArray.push(currentNum)
         val = convertSymbol()
         valuesArray.push(val)
-        temp = ''
+        currentNum = ''
         
         }
 
-        displayValue(result)
         
 
 }
